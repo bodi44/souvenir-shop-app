@@ -12,7 +12,7 @@ Powered by React, Redux.
 git clone https://github.com/bodi44/souvenir-shop-app.git
 ```
 
-- Install dependencies
+- Install dependencies([need to install Node.js and Node package manager first](https://nodejs.org/uk/download/))
 ```
 npm install
 ```
