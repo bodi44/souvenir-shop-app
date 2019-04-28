@@ -1,4 +1,4 @@
-const API = 'http://data.fixer.io/api/latest?access_key=26d6132618a9e2ec422be84ba48a260a'
+const API = 'https://data.fixer.io/api/latest?access_key=26d6132618a9e2ec422be84ba48a260a'
 
 const handleErrors = res => {
   if (!res.ok)

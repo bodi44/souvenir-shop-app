@@ -25,7 +25,7 @@ const SouvenirStoreApp = ({ fetchCurrencies, currencies, isLoading, hasError, al
 
   if (isLoading) return <div className={b('data-error')}>Data is Loading...</div>
 
-  if (hasError) return <div className={b('data-error')}>Error occurred while fetching API</div>
+  if (hasError) return <div className={b('data-error')}>Error occurred while fetching API: {hasError}</div>
 
   return (
     <div className={b()}>
