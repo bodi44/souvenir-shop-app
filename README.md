@@ -27,7 +27,7 @@ npm start
 ## Usage
 **Application has following set of commands**:
 
-- `purhcase 2019-04-25 12 USD “Photo Frame` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
+- `purhcase 2019-04-25 12 USD “Photo Frame”` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
 Purchases for various dates could be added in any order.
 
   Command accepts the following parameters:<br>
