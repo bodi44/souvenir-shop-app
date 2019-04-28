@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d9a9605fc240c05af25fd63f3864d18f",
+    "revision": "37295180d94b2172382fb0caf45725c2",
     "url": "/souvenir-shop-app/index.html"
   },
   {
-    "revision": "eb43ec60726608b4aba5",
+    "revision": "e14e3edf075d203b6f59",
     "url": "/souvenir-shop-app/static/css/main.c59eeb54.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/souvenir-shop-app/static/js/2.15001d47.chunk.js"
   },
   {
-    "revision": "eb43ec60726608b4aba5",
-    "url": "/souvenir-shop-app/static/js/main.3bfceb63.chunk.js"
+    "revision": "e14e3edf075d203b6f59",
+    "url": "/souvenir-shop-app/static/js/main.5b409054.chunk.js"
   },
   {
     "revision": "b3c6cb280f9e46a61371",
