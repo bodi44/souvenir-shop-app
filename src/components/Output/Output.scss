@@ -1,0 +1,19 @@
+.Output {
+  position: relative;
+  display: block;
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  background: lightcyan;
+  text-align: center;
+  margin: 10px auto;
+  min-height: 200px;
+
+  &_error{
+    background: #ff7675;
+  }
+
+  &__title{
+
+  }
+}

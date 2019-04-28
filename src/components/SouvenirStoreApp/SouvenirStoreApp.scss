@@ -1,0 +1,22 @@
+.SouvenirStoreApp {
+  margin: 0 auto;
+  font-family: Arial sans-serif;
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  min-width: 300px;
+
+  &__data-error {
+    margin-top: 50px;
+    font-size: 20px;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  &__title{
+    display: block;
+    text-align: center;
+    margin: 50px auto;
+  }
+}
