@@ -2,8 +2,10 @@
   "name": "souvenir-shop-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bodi44.github.io/souvenir-shop-app/",
   "dependencies": {
-    "node-sass": "^4.11.0",
+    "gh-pages": "^2.0.1",
+    "node-sass": "^4.12.0",
     "node-uuid": "^1.4.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -15,6 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
