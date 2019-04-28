@@ -1,68 +1,110 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Souvenir-store app
+Test task - application for small business owners who would like to collect an information about their income and get annual income statistics. <br>
 
-## Available Scripts
+Powered by React, Redux.
 
-In the project directory, you can run:
+#### You can use pre-build application link: https://bodi44.github.io/souvenir-shop-app/
 
-### `npm start`
+## Getting started:
+#### You can also download and build app by yourself:
+- Clone project repository
+```
+git clone https://github.com/bodi44/souvenir-shop-app.git
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Install dependencies
+```
+npm install
+```
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Run application
 
-### `npm test`
+```
+npm start
+```
+- Open `http://localhost:3000/` with running app
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
+**Application has following set of commands**:
 
-### `npm run build`
+- `purhcase 2019-04-25 12 USD “Photo Frame` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
+Purchases for various dates could be added in any order.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Command accepts the following parameters:<br>
+    - 2019-04-25 — the date when purchase has occurred<br>
+    - 12 — an amount of money spent by customer<br>
+    - USD — the currency in which purchase has occurred<br>
+    - “Photo Frame” — the name of the product purchased
+    
+     ```
+     > purchase 2019-04-25 2 USD T-shirt
+     
+     2019-04-25
+     T-shirt 2 USD
+     
+     > purchase 2019-04-25 12 EUR “Photo Frame”
+     
+     2019-04-25
+     T-shirt 2 USD
+     Photo Frame 12 EUR
+     
+     > purchase 2019-04-27 4.75 EUR Beer
+     
+     2019-04-25
+     T-shirt 2 USD
+     Photo Frame 12 EUR
+     
+     2019-04-27
+     Beer 4.75 EUR
+     
+     > purchase 2019-04-26 2.5 PLN Sweets
+     
+     2019-04-25
+     T-shirt 2 USD
+     Photo Frame 12 EUR
+     
+     2019-04-27
+     Beer 4.75 EUR
+     
+     2019-04-26
+     Sweets 2.5 PLN
+     ```
+    
+- `all` - shows all purchases sorted by date.
+    ```
+    > all
+    
+    2019-04-25
+    T-shirt 2 USD
+    Photo Frame 12 EUR
+    
+    2019-04-26
+    Sweets 2.5 PLN
+    
+    2019-04-27
+    Beer 4.75 EUR
+    ```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- `clear 2019-04-25` -  removes all purchases for specified date, where:   
+    - 2019-04-25 — the date for which all purchases should be removed
+    
+    ```
+    > clear 2019-04-27
+    
+    2019-04-25
+    T-shirt 2 USD
+    Photo Frame 12 EUR
+    
+    2019-04-26
+    Sweets 2.5 PLN
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- `report 2019 UAH` - this command should take a list of cross-currency exchange rates from http://fixer.io (register for a free plan),
+ calculate the total income for specified year, convert and present it in specified currency, where:
+    - 2019 — year for which total income should be calculated
+    - UAH — currency in which total income is presented
+    
+    ```
+    > report 2019 UAH    
+    428.02 UAH
+    ```
