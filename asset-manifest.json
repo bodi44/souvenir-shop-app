@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/souvenir-shop-app/static/css/main.c59eeb54.chunk.css",
-    "main.js": "/souvenir-shop-app/static/js/main.5b409054.chunk.js",
-    "main.js.map": "/souvenir-shop-app/static/js/main.5b409054.chunk.js.map",
+    "main.js": "/souvenir-shop-app/static/js/main.57ed071d.chunk.js",
+    "main.js.map": "/souvenir-shop-app/static/js/main.57ed071d.chunk.js.map",
     "runtime~main.js": "/souvenir-shop-app/static/js/runtime~main.03833fbf.js",
     "runtime~main.js.map": "/souvenir-shop-app/static/js/runtime~main.03833fbf.js.map",
     "static/js/2.15001d47.chunk.js": "/souvenir-shop-app/static/js/2.15001d47.chunk.js",
     "static/js/2.15001d47.chunk.js.map": "/souvenir-shop-app/static/js/2.15001d47.chunk.js.map",
     "index.html": "/souvenir-shop-app/index.html",
-    "precache-manifest.2f631d25af427985ba55be56d7687dde.js": "/souvenir-shop-app/precache-manifest.2f631d25af427985ba55be56d7687dde.js",
+    "precache-manifest.7af709601ce3b9f5f0f8a8dfca9cb280.js": "/souvenir-shop-app/precache-manifest.7af709601ce3b9f5f0f8a8dfca9cb280.js",
     "service-worker.js": "/souvenir-shop-app/service-worker.js",
     "static/css/main.c59eeb54.chunk.css.map": "/souvenir-shop-app/static/css/main.c59eeb54.chunk.css.map"
   }
