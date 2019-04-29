@@ -27,6 +27,31 @@ npm start
 ## Usage
 **Application has following set of commands**:
 
+- `help` - get instructions if you get stuck    
+    ```
+    > help   
+    purchase <date> <price> <currency> <productName> - add purchase to store.
+    Example: purchase 2019-04-25 12 USD Photo
+    Output:
+    2019-04-25
+    Photo 12 USD
+    
+    all - show all purchases.
+    Example: all
+    Output:
+    2019-04-25
+    Photo 12 USD
+    
+    clear <date> - removes all purchases for specified date.
+    Example: clear 2019-04-25
+    Output:
+    
+    report <year> <currency> - calculate the total income for specified year, convert and present it in specified currency.
+    Example: report 2019 UAH
+    Output:
+    356.4 UAH
+    ```
+
 - `purhcase 2019-04-25 12 USD “Photo Frame”` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
 Purchases for various dates could be added in any order.
 

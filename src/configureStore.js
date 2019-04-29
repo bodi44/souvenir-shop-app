@@ -3,5 +3,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 
+//redux-store config
 export default () =>
   createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))

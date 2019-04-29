@@ -9,7 +9,7 @@ import {
   isCurrenciesLoading,
   isCurrenciesHasErrorLoading,
   isStoreHasErrorMessage,
-  getTotalIncome
+  getTotalIncome, showHelpMessage
 } from '../../reducers'
 import { fetchCurrencies } from '../../actions'
 
@@ -18,7 +18,7 @@ import BEM from '../../helpers/BEM'
 
 const b = BEM('SouvenirStoreApp')
 
-const SouvenirStoreApp = ({ fetchCurrencies, currencies, isLoading, hasError, allPurchases, storeErrorMessage, totalIncome }) => {
+const SouvenirStoreApp = ({ fetchCurrencies, currencies, isLoading, hasError, allPurchases, storeErrorMessage, totalIncome, helpMessage }) => {
   useEffect(() => {
     fetchCurrencies()
   }, [fetchCurrencies])
@@ -36,7 +36,8 @@ const SouvenirStoreApp = ({ fetchCurrencies, currencies, isLoading, hasError, al
       <Output
         allPurchases={allPurchases}
         totalIncome={totalIncome}
-        error={storeErrorMessage}/>
+        error={storeErrorMessage}
+        helpMessage={helpMessage}/>
     </div>
   )
 }
@@ -48,7 +49,8 @@ export default connect(
     hasError: isCurrenciesHasErrorLoading(state),
     allPurchases: getAllPurchasesByDate(state),
     storeErrorMessage: isStoreHasErrorMessage(state),
-    totalIncome: getTotalIncome(state)
+    totalIncome: getTotalIncome(state),
+    helpMessage: showHelpMessage(state)
   }),
   {
     fetchCurrencies

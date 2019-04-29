@@ -1,3 +1,4 @@
+//BEM css-styles method optimizer
 const ELEMENT_SEPARATOR = '__',
   MODIFIER_SEPARATOR = '_'
 

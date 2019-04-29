@@ -4,9 +4,10 @@ import {
   CLEAR_PURCHASES_BY_DATE,
   PURCHASE,
   REPORT_ABOUT_PURCHASES,
-  SHOW_ALL_PURCHASES, SHOW_ERROR_MESSAGE
+  SHOW_ALL_PURCHASES, SHOW_ERROR_MESSAGE, SHOW_HELP_MESSAGE
 } from '../actions'
 
+//Souvenir-store reducers
 const byDate = (state = {}, action) => {
   switch (action.type) {
     case PURCHASE:
@@ -90,10 +91,20 @@ const totalIncome = (state = null, action) => {
   }
 }
 
+const helpMessage = (state = false, action) => {
+  switch (action.type) {
+    case SHOW_HELP_MESSAGE:
+      return true
+    default:
+      return false
+  }
+}
+
 const souvenirStore = combineReducers({
   byDate,
   allDates,
   errors,
+  helpMessage,
   totalIncome
 })
 
@@ -102,11 +113,8 @@ export default souvenirStore
 //Selectors
 export const getAllPurchasesByDate = state => state.allDates.map(date => state.byDate[date])
 
-export const getPurchasesByYear = (year, state) => {
-  const filteredDates = state.allDates.filter(date => date.slice(0, 4) === year)
-  return filteredDates.map(date => state.byDate[date])
-}
-
 export const isStoreHasErrorMessage = state => state.errors
+
+export const showHelpMessage = state => state.helpMessage
 
 export const getTotalIncome = state => state.totalIncome

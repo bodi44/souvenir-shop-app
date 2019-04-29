@@ -6,7 +6,8 @@ import {
   purchase,
   reportAboutPurchases,
   showAllPurchases,
-  showErrorMessage
+  showErrorMessage,
+  showHelpMessage
 } from '../../actions'
 
 import './RequestForm.scss'
@@ -14,20 +15,20 @@ import BEM from '../../helpers/BEM'
 
 const b = BEM('RequestForm')
 
-const RequestForm = ({ purchase, showAllPurchases, showErrorMessage, clearPurchasesByDate, reportAboutPurchases, allPurchases, currencyData }) => {
+const RequestForm = props => {
+  const {
+    purchase,
+    showAllPurchases,
+    showErrorMessage,
+    clearPurchasesByDate,
+    reportAboutPurchases,
+    allPurchases,
+    currencyData,
+    showHelpMessage
+  } = props
+
   const [input, setInput] = useState('')
-
-  const makePurchase = (date, price, currency, productName) => {
-    purchase(date, price, currency, productName)
-  }
-
-  const all = () => {
-    showAllPurchases()
-  }
-
-  const clear = (date) => {
-    clearPurchasesByDate(date)
-  }
+  const [buttonColor, setButtonColor] = useState(false)
 
   const report = (year, currency) => {
     let totalIncome = 0
@@ -45,10 +46,11 @@ const RequestForm = ({ purchase, showAllPurchases, showErrorMessage, clearPurcha
   }
 
   const methods = {
-    'purchase': makePurchase,
-    'all': all,
-    'clear': clear,
-    'report': report
+    'purchase': purchase,
+    'all': showAllPurchases,
+    'clear': clearPurchasesByDate,
+    'report': report,
+    'help': showHelpMessage
   }
 
   const handleInputChange = e => {
@@ -61,7 +63,7 @@ const RequestForm = ({ purchase, showAllPurchases, showErrorMessage, clearPurcha
     let args = input.split(' ')
 
     if (methods.hasOwnProperty(args[0])) {
-      if (methods[args[0]] === makePurchase && args.slice(1).length > 4) {
+      if (methods[args[0]] === purchase && args.slice(1).length > 4) {
         const re = /"*/
         let string = ''
 
@@ -77,6 +79,12 @@ const RequestForm = ({ purchase, showAllPurchases, showErrorMessage, clearPurcha
     }
   }
 
+  const handleButtonColorChange = () => {
+    setButtonColor(!buttonColor)
+  }
+
+  const buttonStyle = buttonColor ? '#7f8fa6' : '#bdc3c7'
+
   return (
     <form action="" className={b()} onSubmit={e => handleSubmit(e)}>
       <input
@@ -86,7 +94,14 @@ const RequestForm = ({ purchase, showAllPurchases, showErrorMessage, clearPurcha
         className={b('input')}
         onChange={handleInputChange}
       />
-      <button className={b('submit')} type='submit'>Click to Submit</button>
+      <button
+        className={b('submit')}
+        type='submit'
+        style={{ backgroundColor: buttonStyle }}
+        onMouseDown={handleButtonColorChange}
+        onMouseUp={handleButtonColorChange}>
+        Click to Submit
+      </button>
     </form>
   )
 }
@@ -98,6 +113,7 @@ export default connect(
     showAllPurchases,
     clearPurchasesByDate,
     reportAboutPurchases,
-    showErrorMessage
+    showErrorMessage,
+    showHelpMessage
   }
 )(RequestForm)

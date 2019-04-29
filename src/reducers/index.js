@@ -22,11 +22,11 @@ export const isCurrenciesHasErrorLoading = state =>
 export const getAllPurchasesByDate = state =>
   fromSouvenirStore.getAllPurchasesByDate(state.souvenirStore)
 
-export const getPurchasesByYear = (year, state) =>
-  fromSouvenirStore.getPurchasesByYear(year, state.souvenirStore)
-
 export const isStoreHasErrorMessage = state =>
   fromSouvenirStore.isStoreHasErrorMessage(state.souvenirStore)
+
+export const showHelpMessage = state =>
+  fromSouvenirStore.showHelpMessage(state.souvenirStore)
 
 export const getTotalIncome = state =>
   fromSouvenirStore.getTotalIncome(state.souvenirStore)

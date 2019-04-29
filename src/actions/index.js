@@ -10,6 +10,7 @@ export const SHOW_ALL_PURCHASES = 'SHOW_ALL_PURCHASES'
 export const CLEAR_PURCHASES_BY_DATE = 'CLEAR_PURCHASES_BY_DATE'
 export const REPORT_ABOUT_PURCHASES = 'REPORT_ABOUT_PURCHASES'
 export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE'
+export const SHOW_HELP_MESSAGE = 'SHOW_HELP_MESSAGE'
 
 //fixer api actions
 export const fetchCurrenciesBegin = () => ({
@@ -64,4 +65,8 @@ export const reportAboutPurchases = totalIncome => ({
 export const showErrorMessage = error => ({
   type: SHOW_ERROR_MESSAGE,
   error
+})
+
+export const showHelpMessage = () => ({
+  type: SHOW_HELP_MESSAGE
 })
