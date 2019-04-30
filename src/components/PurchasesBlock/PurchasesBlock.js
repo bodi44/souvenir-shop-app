@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './PurchasesBlock.scss'
 import BEM from '../../helpers/BEM'
@@ -15,6 +16,11 @@ const PurchasesBlock = ({ date, allPurchases }) => (
     }
   </div>
 )
+
+PurchasesBlock.propTypes = {
+  date: PropTypes.string.isRequired,
+  allPurchases: PropTypes.array.isRequired
+}
 
 
 export default PurchasesBlock

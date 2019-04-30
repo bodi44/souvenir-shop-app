@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SouvenirStoreApp component should render correctly wrapped into Provider with no given props 1`] = `ShallowWrapper {}`;

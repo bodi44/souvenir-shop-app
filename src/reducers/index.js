@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux/es/redux'
+import { combineReducers } from 'redux'
 
 import currencies, * as fromCurrencies from './currencies'
-import souvenirStore, * as fromSouvenirStore from './sovenirStore'
+import souvenirStore, * as fromSouvenirStore from './souvenirStore'
 
 export default combineReducers({
   currencies: currencies,

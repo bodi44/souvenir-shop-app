@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PurchaseBlock Component should render correctly with given date and allPurchases props 1`] = `ShallowWrapper {}`;

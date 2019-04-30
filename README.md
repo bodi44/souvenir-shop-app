@@ -3,10 +3,7 @@ Test task - application for small business owners who would like to collect an i
 
 Powered by React, Redux.
 
-#### You can use pre-build application link: https://bodi44.github.io/souvenir-shop-app/
-
-## Getting started:
-#### You can also download and build app by yourself:
+## Getting started
 - Clone project repository
 ```
 git clone https://github.com/bodi44/souvenir-shop-app.git
@@ -23,6 +20,12 @@ npm install
 npm start
 ```
 - Open `http://localhost:3000/` with running app
+
+## Testing
+ - To run tests enter:
+ ```
+ npm test
+ ```
 
 ## Usage
 **Application has following set of commands**:

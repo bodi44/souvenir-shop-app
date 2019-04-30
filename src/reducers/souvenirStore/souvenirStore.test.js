@@ -1,4 +1,4 @@
-import expect from 'expect'
+import expect from 'expect/build/index'
 
 import {
   CLEAR_PURCHASES_BY_DATE,
@@ -6,8 +6,8 @@ import {
   REPORT_ABOUT_PURCHASES,
   SHOW_ALL_PURCHASES, SHOW_ERROR_MESSAGE,
   SHOW_HELP_MESSAGE
-} from '../actions'
-import souvenirStoreReducer from './sovenirStore'
+} from '../../actions'
+import souvenirStoreReducer from '../souvenirStore'
 
 const initialState = {
   byDate: {},

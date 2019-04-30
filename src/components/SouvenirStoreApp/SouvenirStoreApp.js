@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import RequestForm from '../RequestForm'
 import Output from '../Output'
@@ -40,6 +41,17 @@ const SouvenirStoreApp = ({ fetchCurrencies, currencies, isLoading, hasError, al
         helpMessage={helpMessage}/>
     </div>
   )
+}
+
+SouvenirStoreApp.propTypes = {
+  currencies: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  hasError: PropTypes.any,
+  allPurchases: PropTypes.array.isRequired,
+  fetchCurrencies: PropTypes.func.isRequired,
+  storeErrorMessage: PropTypes.string,
+  totalIncome: PropTypes.string,
+  helpMessage: PropTypes.bool.isRequired
 }
 
 export default connect(

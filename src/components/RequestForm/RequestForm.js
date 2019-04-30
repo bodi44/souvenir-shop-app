@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import {
   clearPurchasesByDate,
@@ -104,6 +105,17 @@ const RequestForm = props => {
       </button>
     </form>
   )
+}
+
+RequestForm.propTypes = {
+  currencyData: PropTypes.object.isRequired,
+  allPurchases: PropTypes.array.isRequired,
+  purchase: PropTypes.func.isRequired,
+  showAllPurchases: PropTypes.func.isRequired,
+  clearPurchasesByDate: PropTypes.func.isRequired,
+  reportAboutPurchases: PropTypes.func.isRequired,
+  showErrorMessage: PropTypes.func.isRequired,
+  showHelpMessage: PropTypes.func.isRequired
 }
 
 export default connect(

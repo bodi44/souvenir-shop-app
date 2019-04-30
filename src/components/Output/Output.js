@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-import PurchasesBlock from '../PurchasesBlock/PurchasesBlock'
+import PurchasesBlock from '../PurchasesBlock'
 
 import './Output.scss'
 import BEM from '../../helpers/BEM'
@@ -80,6 +81,13 @@ const Output = ({ allPurchases, error, totalIncome, helpMessage }) => {
       ))}
     </div>
   )
+}
+
+Output.propTypes = {
+  allPurchases: PropTypes.array.isRequired,
+  totalIncome: PropTypes.string,
+  error: PropTypes.string,
+  helpMessage: PropTypes.bool.isRequired
 }
 
 export default Output

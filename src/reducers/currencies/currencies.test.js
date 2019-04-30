@@ -1,7 +1,7 @@
-import expect from 'expect'
+import expect from 'expect/build/index'
 
-import currenciesReducer from './currencies'
-import { FETCH_CURRENCIES_BEGIN, FETCH_CURRENCIES_FAILURE, FETCH_CURRENCIES_SUCCESS } from '../actions'
+import currenciesReducer from '../currencies'
+import { FETCH_CURRENCIES_BEGIN, FETCH_CURRENCIES_FAILURE, FETCH_CURRENCIES_SUCCESS } from '../../actions'
 
 const initialState = {
   currenciesData: {},
