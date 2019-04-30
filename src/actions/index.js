@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import { v4 } from 'node-uuid'
 import { getAllCurrencies } from '../api'
 //fixer api action-names
@@ -39,9 +40,9 @@ export const fetchCurrencies = () => async (dispatch) => {
 }
 
 //store actions
-export const purchase = (date, price, currency, productName) => ({
+export const purchase = (date, price, currency, productName, id = v4()) => ({
   type: PURCHASE,
-  id: v4(),
+  id,
   date,
   price: parseFloat(price),
   currency,

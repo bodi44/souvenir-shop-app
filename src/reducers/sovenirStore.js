@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux/es/redux'
+import { combineReducers } from 'redux'
 
 import {
   CLEAR_PURCHASES_BY_DATE,
@@ -49,8 +49,6 @@ const byDate = (state = {}, action) => {
       const newState = Object.assign({}, state)
       delete newState[action.date]
       return newState
-    case REPORT_ABOUT_PURCHASES:
-      return state
     default:
       return state
   }
@@ -66,8 +64,6 @@ const allDates = (state = [], action) => {
       return Array.prototype.slice.call(state).sort((a, b) => new Date(b) - new Date(a)).reverse()
     case CLEAR_PURCHASES_BY_DATE:
       return state.filter(date => date !== action.date)
-    case REPORT_ABOUT_PURCHASES:
-      return state
     default:
       return state
   }

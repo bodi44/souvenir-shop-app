@@ -11,7 +11,7 @@ const currenciesData = (state = {}, action) => {
     case FETCH_CURRENCIES_SUCCESS:
       return action.payload.currencies.rates
     case FETCH_CURRENCIES_FAILURE:
-      return action.payload.error
+      return state
     default:
       return state
   }
