@@ -12,7 +12,7 @@ import {
   isStoreHasErrorMessage,
   getTotalIncome, showHelpMessage
 } from '../../reducers'
-import { fetchCurrencies } from '../../actions'
+import { fetchCurrencies } from '../../actions/currencies'
 
 import './SouvenirStoreApp.scss'
 import BEM from '../../helpers/BEM'

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import { FETCH_CURRENCIES_BEGIN, FETCH_CURRENCIES_FAILURE, FETCH_CURRENCIES_SUCCESS } from '../../actions'
+import { FETCH_CURRENCIES_BEGIN, FETCH_CURRENCIES_FAILURE, FETCH_CURRENCIES_SUCCESS } from '../../actions/currencies'
 
 //Currencies reducers
 const currenciesData = (state = {}, action) => {

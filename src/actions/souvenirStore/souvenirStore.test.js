@@ -7,7 +7,8 @@ import {
   REPORT_ABOUT_PURCHASES,
   SHOW_ERROR_MESSAGE,
   SHOW_HELP_MESSAGE
-} from '../actions'
+} from '../souvenirStore'
+
 import {
   purchase,
   showAllPurchases,
@@ -15,7 +16,7 @@ import {
   reportAboutPurchases,
   showErrorMessage,
   showHelpMessage
-} from '../actions'
+} from '../souvenirStore'
 
 describe('actions', () => {
   it('should add purchase', () => {

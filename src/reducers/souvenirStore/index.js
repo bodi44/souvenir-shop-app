@@ -5,7 +5,7 @@ import {
   PURCHASE,
   REPORT_ABOUT_PURCHASES,
   SHOW_ALL_PURCHASES, SHOW_ERROR_MESSAGE, SHOW_HELP_MESSAGE
-} from '../../actions'
+} from '../../actions/souvenirStore'
 
 //Souvenir-store reducers
 const byDate = (state = {}, action) => {

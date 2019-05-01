@@ -9,7 +9,7 @@ import {
   showAllPurchases,
   showErrorMessage,
   showHelpMessage
-} from '../../actions'
+} from '../../actions/souvenirStore'
 
 import './RequestForm.scss'
 import BEM from '../../helpers/BEM'
