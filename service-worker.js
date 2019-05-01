@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/souvenir-shop-app/precache-manifest.5e38fada33933a3fa0d8dcf085f34c70.js"
+  "/souvenir-shop-app/precache-manifest.36068305b5dbe753116fcfe0dea31e9d.js"
 );
 
 self.addEventListener('message', (event) => {
