@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import './RequestForm.scss'
 import BEM from '../../helpers/BEM'
@@ -24,5 +25,12 @@ const RequestForm = ({ buttonStyle, handleInputChange, handleSubmit, handleButto
     </button>
   </form>
 )
+
+RequestForm.propTypes = {
+  buttonStyle: PropTypes.string,
+  handleInputChange: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  handleButtonColorChange: PropTypes.func
+}
 
 export default RequestForm

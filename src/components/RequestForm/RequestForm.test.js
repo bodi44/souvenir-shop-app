@@ -1,44 +1,46 @@
 import React from 'react'
-import Enzyme, { shallow } from 'enzyme'
+import { shallow, configure } from 'enzyme'
 import expect from 'expect'
 import Adapter from 'enzyme-adapter-react-16'
 
 import RequestForm from './RequestForm'
-import ProviderWrapper from '../Provider'
-import configureStore from '../../configureStore'
 
-Enzyme.configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() })
 
 describe('RequestForm component', () => {
   it('should render correctly with given props', () => {
-    const allPurchases = [
-      {
-        id: '2019-04-25',
-        purchases: [
-          {
-            id: 'c4f63a46-de46-49c3-9773-0a47c62cdb77',
-            date: '2019-04-25',
-            price: 12,
-            currency: 'EUR',
-            productName: 'Photo'
-          }
-        ]
-      }
-    ]
-
-    const currencyData = {
-      'BTC': 0.000211,
-      'CZK': 25.640122,
-      'EUR': 1,
-      'GBP': 0.860335,
-      'UAH': 29.569446,
-      'USD': 1.120097
-    }
+    const handleInputChange = jest.fn()
+    const handleSubmit = jest.fn()
+    const handleButtonColorChange = jest.fn()
 
     const component = shallow(
-      <ProviderWrapper store={configureStore()}>
-        <RequestForm allPurchases={allPurchases} currencyData={currencyData}/>
-      </ProviderWrapper>)
+      <RequestForm
+        buttonStyle={'#7f8fa6'}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        handleButtonColorChange={handleButtonColorChange}
+      />
+    )
+
     expect(component).toMatchSnapshot()
+  })
+
+  it('event listeners should work', () => {
+    const handleInputChange = jest.fn()
+    const handleSubmit = jest.fn()
+    const handleButtonColorChange = jest.fn()
+
+    const component = shallow(
+      <RequestForm
+        buttonStyle={'#7f8fa6'}
+        handleInputChange={handleInputChange}
+        handleSubmit={handleSubmit}
+        handleButtonColorChange={handleButtonColorChange}
+      />
+    )
+
+    component.find('input').simulate('change', { target: { value: 'purchase' } })
+    component.find('button').simulate('click')
+    expect(handleInputChange).toHaveBeenCalledWith({ target: { value: 'purchase' } })
   })
 })

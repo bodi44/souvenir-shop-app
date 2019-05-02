@@ -9,7 +9,7 @@ import {
   showHelpMessage
 } from '../../reducers'
 import Output from '../../components/Output/'
-import HelpMessage from '../../components/HelpMessage'
+import HelpMessage from '../../components/HelpMessage/HelpMessage'
 
 const VisibleOutput = ({ allPurchases, totalIncome, storeErrorMessage, helpMessage }) => {
   if (storeErrorMessage) {
@@ -37,6 +37,13 @@ const VisibleOutput = ({ allPurchases, totalIncome, storeErrorMessage, helpMessa
   return (
     <Output title={'Output:'} allPurchases={allPurchases}/>
   )
+}
+
+Output.propTypes = {
+  allPurchases: PropTypes.array.isRequired,
+  totalIncome: PropTypes.string,
+  storeErrorMessage: PropTypes.string,
+  helpMessage: PropTypes.bool
 }
 
 export default connect(

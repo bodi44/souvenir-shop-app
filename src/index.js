@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import SouvenirStoreApp from './components/SouvenirStoreApp'
+import SouvenirStore from './containers/SouvenirStore'
 import ProviderWrapper from './components/Provider'
 import configureStore from './configureStore'
 
@@ -9,7 +9,7 @@ import './index.css'
 
 ReactDOM.render(
   <ProviderWrapper store={configureStore()}>
-    <SouvenirStoreApp/>
+    <SouvenirStore/>
   </ProviderWrapper>,
   document.getElementById('root')
 )

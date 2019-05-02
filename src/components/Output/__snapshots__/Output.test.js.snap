@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Output Component should render correctly with allPurchases and helpMessage props 1`] = `ShallowWrapper {}`;
+exports[`Output Component should render correctly with title and allPurchases props 1`] = `ShallowWrapper {}`;
 
-exports[`Output Component should render correctly with allPurchases, helpMessage and error props props 1`] = `ShallowWrapper {}`;
+exports[`Output Component should render correctly with title and children 1`] = `ShallowWrapper {}`;
 
-exports[`Output Component should render correctly with allPurchases, helpMessage totalIncome props 1`] = `ShallowWrapper {}`;
+exports[`Output Component should render correctly with title and output props 1`] = `ShallowWrapper {}`;
 
-exports[`Output Component should render correctly with allPurchases, helpMessage, error, totalIncome props 1`] = `ShallowWrapper {}`;
+exports[`Output Component should render correctly with title, error props and given children 1`] = `ShallowWrapper {}`;

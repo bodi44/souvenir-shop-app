@@ -8,7 +8,7 @@ import BEM from '../../helpers/BEM'
 
 const b = BEM('Output')
 
-const Output = (props) => {
+const Output = props => {
   const { title, output, allPurchases, error } = props
 
   if (allPurchases) {
@@ -34,7 +34,8 @@ Output.propTypes = {
   allPurchases: PropTypes.array,
   title: PropTypes.string,
   error: PropTypes.string,
-  output: PropTypes.bool
+  output: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default Output

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -10,14 +10,14 @@ import {
   showErrorMessage,
   showHelpMessage
 } from '../../actions/souvenirStore'
-import { fetchCurrencies } from '../../actions/currencies'
-import { getAllPurchasesByDate, getCurrencies } from '../../reducers'
+import { getAllPurchasesByDate } from '../../reducers'
 
 import RequestForm from '../../components/RequestForm'
 
+import isValidDate from '../../helpers/isValidDate'
+
 const FilterRequest = props => {
   const {
-    fetchCurrencies,
     allPurchases,
     currencies,
     purchase,
@@ -28,11 +28,37 @@ const FilterRequest = props => {
     showHelpMessage
   } = props
 
-  const report = (year, currency) => {
-    let totalIncome = 0
+  const [input, setInput] = useState('')
+  const [buttonColor, setButtonColor] = useState(false)
 
+  const checkPurchaseCommand = (date, price, currency, productName) => {
+    if (!isValidDate(new Date(date)) || currencies[currency] === undefined) {
+      showErrorMessage('Error: Invalid arguments given.')
+      return
+    }
+
+    purchase(date, price, currency, productName)
+  }
+
+  const checkClearCommand = date => {
+    if (!isValidDate(new Date(date))) {
+      showErrorMessage('Error: Invalid arguments given.')
+      return
+    }
+
+    clearPurchasesByDate(date)
+  }
+
+  const report = (year, currency) => {
+    if (currencies[currency] === undefined || !isValidDate(new Date(year))) {
+      showErrorMessage('Error: Invalid arguments given.')
+      return
+    }
+
+    let totalIncome = 0
     const filteredData = allPurchases.filter(purchaseDate => purchaseDate.id.slice(0, 4) === year)
-    filteredData.map(date => date.purchases.map(purchase => {
+
+    filteredData.map(date => date.purchases.forEach(purchase => {
         purchase.currency !== currency ?
           totalIncome = totalIncome + purchase.price / currencies[purchase.currency] * currencies[currency]
           :
@@ -44,19 +70,12 @@ const FilterRequest = props => {
   }
 
   const methods = {
-    'purchase': purchase,
-    'all': showAllPurchases,
-    'clear': clearPurchasesByDate,
-    'report': report,
-    'help': showHelpMessage
+    'purchase': { callback: checkPurchaseCommand, argLength: 4 },
+    'all': { callback: showAllPurchases, argLength: 0 },
+    'clear': { callback: checkClearCommand, argLength: 1 },
+    'report': { callback: report, argLength: 2 },
+    'help': { callback: showHelpMessage, argLength: 0 }
   }
-
-  useEffect(() => {
-    fetchCurrencies()
-  }, [fetchCurrencies])
-
-  const [input, setInput] = useState('')
-  const [buttonColor, setButtonColor] = useState(false)
 
   const handleInputChange = e => {
     e.preventDefault()
@@ -68,17 +87,27 @@ const FilterRequest = props => {
     let args = input.split(' ')
 
     if (methods.hasOwnProperty(args[0])) {
-      if (methods[args[0]] === purchase && args.slice(1).length > 4) {
-        const re = /"*/
+      if (methods[args[0]].callback === checkPurchaseCommand && args.slice(1).filter(arg => arg !== '').length > 4) {
+        const re = /(^"|"$)/
         let string = ''
 
         if (args.slice(1)[3].match(re)) {
           args.slice(4).forEach(arg => string += ` ${arg}`)
         }
 
-        methods[args[0]](...args.slice(1, 4), string)
+        if (!string.match(re)) {
+          showErrorMessage('Error: invalid number of arguments given')
+          return
+        }
 
-      } else methods[args[0]](...args.slice(1))
+        methods[args[0]].callback(...args.slice(1, 4), string)
+
+      } else {
+        methods[args[0]].argLength === args.slice(1).filter(arg => arg !== '').length ?
+          methods[args[0]].callback(...args.slice(1)) :
+          showErrorMessage('Error: invalid number of arguments given')
+      }
+
     } else {
       showErrorMessage('Error: No such command.')
     }
@@ -100,13 +129,22 @@ const FilterRequest = props => {
   )
 }
 
+FilterRequest.propTypes = {
+  allPurchases: PropTypes.array,
+  currencies: PropTypes.object,
+  purchase: PropTypes.func,
+  showAllPurchases: PropTypes.func,
+  clearPurchasesByDate: PropTypes.func,
+  reportAboutPurchases: PropTypes.func,
+  showErrorMessage: PropTypes.func,
+  showHelpMessage: PropTypes.func
+}
+
 export default connect(
   state => ({
-    currencies: getCurrencies(state),
     allPurchases: getAllPurchasesByDate(state)
   }),
   {
-    fetchCurrencies,
     purchase,
     showAllPurchases,
     clearPurchasesByDate,
