@@ -11,7 +11,6 @@ import {
   showHelpMessage
 } from '../../actions/souvenirStore'
 import { getAllPurchasesByDate } from '../../reducers'
-
 import RequestForm from '../../components/RequestForm'
 
 import isValidDate from '../../helpers/isValidDate'
