@@ -55,7 +55,7 @@ npm start
     356.4 UAH
     ```
 
-- `purhcase 2019-04-25 12 USD “Photo Frame”` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
+- `purhcase 2019-04-25 12 USD "Photo Frame"` - adds purchases made by customers in any supported currency (e.g. USD, EUR, PLN, etc.) to the list of purchases.
 Purchases for various dates could be added in any order.
 
   Command accepts the following parameters:<br>
@@ -70,17 +70,17 @@ Purchases for various dates could be added in any order.
      2019-04-25
      T-shirt 2 USD
      
-     > purchase 2019-04-25 12 EUR “Photo Frame”
+     > purchase 2019-04-25 12 EUR "Photo Frame"
      
      2019-04-25
      T-shirt 2 USD
-     Photo Frame 12 EUR
+     "Photo Frame" 12 EUR
      
      > purchase 2019-04-27 4.75 EUR Beer
      
      2019-04-25
      T-shirt 2 USD
-     Photo Frame 12 EUR
+     "Photo Frame" 12 EUR
      
      2019-04-27
      Beer 4.75 EUR
@@ -89,7 +89,7 @@ Purchases for various dates could be added in any order.
      
      2019-04-25
      T-shirt 2 USD
-     Photo Frame 12 EUR
+     "Photo Frame" 12 EUR
      
      2019-04-27
      Beer 4.75 EUR
@@ -104,7 +104,7 @@ Purchases for various dates could be added in any order.
     
     2019-04-25
     T-shirt 2 USD
-    Photo Frame 12 EUR
+    "Photo Frame" 12 EUR
     
     2019-04-26
     Sweets 2.5 PLN
@@ -121,7 +121,7 @@ Purchases for various dates could be added in any order.
     
     2019-04-25
     T-shirt 2 USD
-    Photo Frame 12 EUR
+    "Photo Frame" 12 EUR
     
     2019-04-26
     Sweets 2.5 PLN
